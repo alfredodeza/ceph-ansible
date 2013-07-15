@@ -1,0 +1,20 @@
+---
+  - name: "udpate apt repo"
+    action: apt update-cache=yes
+
+  - name: install common os packages
+    action: apt pkg=$item state=installed
+    with_items:
+      - openssh-server
+
+  - name: ensure sudoers.d is enabled
+    lineinfile: dest=/etc/sudoers state=present backup=yes regexp='^#includedir /etc/sudoers.d' line='#includedir /etc/sudoers.d'
+
+  - name: set up password-less sudo for ceph user
+    copy: content='ceph ALL=(ALL) NOPASSWD:ALL' dest=/etc/sudoers.d/ceph owner=root group=root mode=0440
+
+  - name: create ceph user
+    user: name=ceph comment="ceph" generate_ssh_key=yes ssh_key_bits=2048 uid=1040
+
+  - name: write ssh config
+    action: template src=../templates/ssh_config dest=/home/vagrant/.ssh/config
