@@ -20,7 +20,7 @@
     action: template src=../templates/ssh_config dest=/home/vagrant/.ssh/config
 
   - name: install the ceph key
-    apt-key: url=${apt-key} state=present
+    apt_key: url=${apt-key} state=present
     notify:
       - update apt cache
 
