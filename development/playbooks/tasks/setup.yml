@@ -2,6 +2,9 @@
   - name: "udpate apt repo"
     action: apt update-cache=yes
 
+  - name: "install python software properties"
+    action: apt pkg=python-software-properties
+
   - name: install common os packages
     action: apt pkg=$item state=installed
     with_items:
@@ -16,11 +19,11 @@
   - name: create ceph user
     user: name=ceph comment="ceph" generate_ssh_key=yes ssh_key_bits=2048 uid=1040
 
-  - name: write ssh config
-    action: template src=../templates/ssh_config dest=/home/vagrant/.ssh/config
-
   - name: install the ceph key
     apt_key: url=${apt-key} state=present
+
+  - name: ensure ceph source in sources.list
+    apt_repository: repo='deb http://ceph.com/debian-${ceph_release}/ ${distro_release} main' state=present
     notify:
       - update apt cache
 
