@@ -21,3 +21,8 @@
 
   - name: install the ceph key
     apt-key: url=${apt-key} state=present
+    notify:
+      - update apt cache
+
+  - name: install ceph-deploy
+    action: apt pkg=ceph-deploy state=installed
