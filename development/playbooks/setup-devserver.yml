@@ -7,13 +7,18 @@
      is_10_up: "'$ansible_distribution_version' >= '10.04'"
      is_ubuntu: "'$ansible_distribution' == 'Ubuntu'"
 
+     distro_name: ${ansible_distribution}
+     distro_release: ${ansible_distribution_release}
+     distro_version: ${ansible_distribution_version}
+
+
      # ceph vars
      apt-key: https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc
+     ceph_release: cuttlefish
      package_name: debian-cuttlefish
 
   tasks:
      - include: tasks/setup.yml
-     - include: tasks/deploy.yml
 
   handlers:
      - include: handlers/handler.yml
