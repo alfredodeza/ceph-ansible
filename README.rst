@@ -11,4 +11,4 @@ provisioning a cluster.
 ``vagrant`` ready
 -----------------
 All playbooks come with a ``vagrant`` file for local development, so getting
-started is even easier. Make sure you have Vagrant versions >= 2.0
+started is even easier. Make sure you have Vagrant versions >= 1.2.0
