@@ -45,5 +45,5 @@ After the vagrant command completes, you are ready to play with Ceph!
 Again, you just went through the `getting started guide <http://ceph.com/docs/master/start/quick-start-preflight/>`_ , but in an
 automated way.
 
-You can now go through the `store cluster quick start <http://ceph.com/docs/master/start/quick-ceph-deploy/>_` to actually start
+You can now go through the `store cluster quick start <http://ceph.com/docs/master/start/quick-ceph-deploy/>`_ to actually start
 using Ceph.
