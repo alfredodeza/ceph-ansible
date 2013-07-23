@@ -15,12 +15,6 @@ Vagrant.configure("2") do |config|
       node2.vm.network :private_network, :ip => "192.168.111.101"
   end
 
-
-  #config.vm.network :private_network, :ip => "192.168.111.100"
-  # This is only necessary if your CPU does not support VT-x or you run virtualbox
-  # inside virtualbox
-  # config.vm.customize ["modifyvm", :id, "--vtxvpid", "off"]
-
   # Adjust cpus and ram
   config.vm.provider :vritualbox do |vb|
       vb.config.vm.customize ["modifyvm", :id, "--memory", "512"]
