@@ -1,3 +1,7 @@
+**deprecated** This work has been superseded by the more official ceph-ansible
+at http://github.com/ceph/ceph-ansible. 
+
+
 ceph-ansible
 ============
 
